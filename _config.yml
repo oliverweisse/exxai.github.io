@@ -1,0 +1,54 @@
+# Site
+name: "EXXAI"
+description: "Industry-grade artificial intelligence."
+meta_description: "Articles on the application of artificial intelligence in various industries."
+logo: 'assets/images/logo.png'
+favicon: 'assets/images/logo.png'
+baseurl: ''
+google_analytics: ''
+disqus: ''
+mailchimp-list: ''
+
+# Authors
+authors:
+  weisseo:
+    name: Oliver Weisse
+    display_name: Oliver Weisse
+    gravatar:
+    email: oliver.weisse@exxeta.com
+    web: https://exxeta.com
+    twitter:
+    description: >
+                  Oliver holds a degree in physics and has vast data science industry experience.
+  waltherg:
+    name: Georg Walther
+    display_name: Georg Walther
+    gravatar:
+    email: georg.walther@exxeta.com
+    web: https://exxeta.com
+    twitter:
+    description: >
+                  Georg holds degrees in biochemistry and computational biology (ETH Zurich, UBC Vancouver, and
+                  John Innes Centre).
+                  He has vast industry experience in the application of machine learning methodologies.
+
+# Plugins
+plugins: 
+  - jekyll-paginate
+  - jekyll-archives
+    
+# Archives
+jekyll-archives:
+  enabled:
+    - categories
+  layout: archive
+  permalinks:
+    category: '/category/:name/'
+    
+# Pagination 
+paginate: 6
+paginate_path: /page:num/
+    
+# Other
+markdown: kramdown
+highlighter: rouge
