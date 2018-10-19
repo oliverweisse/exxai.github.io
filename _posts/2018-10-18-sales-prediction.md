@@ -33,7 +33,7 @@ with another Kaggle dataset, which was provided by one of the largest Russian so
 In contrast to the Rossmann challenge, we do not want to predict daily sales, but monthly sales instead.
 
 We have 33 months of sales data and want to predict the sales for the next month.
-Let us have a look at what we want to predict:
+Let us have a look at what we want to predict: neues wort
 
 shop_id | item_id | sales
 --- | --- | ---
@@ -46,3 +46,5 @@ shop_id | item_id | sales
 ...
 
 $$L = \frac{4 \cdot 1 + 1}{5} = 1.2$$
+
+finalizing......
