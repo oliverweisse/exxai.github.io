@@ -35,13 +35,13 @@ In contrast to the Rossmann challenge, we do not want to predict daily sales, bu
 We have 33 months of sales data and want to predict the sales for the next month.
 Let us have a look at what we want to predict:
 
-|shop_id|item_id|sales|
-|:-----:|:-----:|:---:|
-|5|5037|?
-|5|5320|?
-|5|5233|?
-|5|5232|?
-|5|5268|?
+shop_id | item_id | sales
+--- | --- | ---
+5 | 5037 | ?
+5 | 5320 | ?
+5 | 5233 | ?
+5 | 5232 | ?
+5 | 5268 | ?
 
 ...
 
