@@ -73,7 +73,8 @@ predict:
   </tbody>
 </table>
 
-Given the shop id and a particular item, we want to predict how many items will be sold in the month (item count month). Let us now have a look on a 
+Given the shop id and a particular item, we want to predict how many items will be sold in the month (item count month). 
+Let us now have a look at a 
 snippet of how our past sales data looks like:
 
 <table class="dataframe" border="1">
