@@ -445,5 +445,5 @@ Now that we built and tested the model on our training data, we can predict the 
 
 This is, of course, a simplified version in comparison with a real data science project. It is possible to have a lot
 more features in the data that can be used by the algorithm. 
-We could also try to use information outside the data set like how many state holidays the given month had or what 
-weather it was.
+We could also try to use information outside the data set like how many state holidays the given month had or 
+prevailing weather conditions at the time.
