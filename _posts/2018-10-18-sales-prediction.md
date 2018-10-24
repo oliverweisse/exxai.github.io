@@ -16,19 +16,16 @@ The core idea is that the computer (“machine”) learns autonomously from data
 to data-driven decision making.
 
 To illustrate and demystify the technology, in this article we will walk through the example of sales prediction. We 
-will cover how to get from raw data to valuable predictions with machine learning. The article can be understood by a 
-nontechnical reader.
+will cover how to get from raw data to valuable predictions with machine learning. The article can be understood by 
+nontechnical readers.
 
 On the platform “Kaggle.com” companies can upload their data and let data scientist compete to build the best machine 
-learning algorithm for their problem. For example, the German store Rossman outsourced their sales prediction in 2015.
-Rossmann store managers were tasked with predicting their daily sales for up to six weeks in advance. Predicting the 
-sales of store items helps planning how much products have to be kept in the warehouse. Store sales are influenced by
+learning algorithm for their problem. One of the largest Russian software firms, 1C Company, provided their data for
+competition. The goal of this competition is to predict the sales for the next month. 
+Predicting the sales of store items helps planning how much products have to be kept in the warehouse.
+Store sales are influenced by
 many factors, including promotions, competition, school and state holidays, seasonality, and locality. And if it is 
 about predicting from data, machine learning is definitely the right technology.
-
-For reasons of simplicity, we will not go through the Rossmann use case, but will instead work with another Kaggle
-dataset, which was provided by one of the largest Russian software firms - 1C Company. In contrast to the Rossmann 
-challenge, we do not want to predict daily sales, but monthly sales instead.
 
 We have 33 months of sales data and want to predict the sales for the next month. Let us have a look at what we want to
 predict:
@@ -39,7 +36,7 @@ predict:
       <th>ID</th>
       <th>shop_id</th>
       <th>item_id</th>
-      <th>sales</th>
+      <th>item_cnt_month</th>
     </tr>
   </thead>
   <tbody>
@@ -76,7 +73,7 @@ predict:
   </tbody>
 </table>
 
-Given the shop id and a particular item we want to predict how many items will be sold. Let us now have a look on a 
+Given the shop id and a particular item, we want to predict how many items will be sold in the month (item count month). Let us now have a look on a 
 snippet of how our past sales data looks like:
 
 <table class="dataframe" border="1">
@@ -387,12 +384,12 @@ perfectly predict the sales on month 1-4 but would be useless on month 5 because
 of month 1-4. In machine learning, this is called “overfitting”. It is comparable to memorizing all the answers of last 
 year’s exam in university or high school. If this year’s exam is the same as last year’s than your answers would be 
 perfect. But this is rarely the case in reality. The exams differ slightly from year to year, so it is better to really 
-understand the material so that you generalize well.
+understand the material in order to generalize well.
 
-The decision tree is very intuitive and also has the advantage that we can get an insight into which feature is the most
+Decision trees are very intuitive and also has the advantage that we can get an insight into which feature is the most
 important. The higher up the feature is, the more important it is. In our case, this means that the item count last 
 month is more important than the item count two months ago. Not all machine learning algorithms are that easy to 
-understand. Fortunately, there are other methods which show us how important a feature is. In the next table you see the
+interpret. Fortunately, there are other methods which show us how important a feature is. In the next table you see the
 so-called permutation importance. It shows us how important a feature is for our prediction. As expected, the sales from
 last months are the most important feature. The item counts from the months before that and the item id and shop id 
 also play a role. Surprisingly, the year and month are irrelevant for our prediction. Seasonality seems to not have any
@@ -400,6 +397,52 @@ influence on the sales. That is also a valuable insight.
   
 ![Permutation Importance](assets/images/permutation_importance.png)
 
-This is, of course, a simplified version. In the Rossmann store challenge a lot more variables were given in the data. 
+Now that we built and tested the model on our training data, we can predict the unknown column from our first table:
+
+<table class="dataframe" border="1">
+  <thead>
+    <tr style="text-align: right;">
+      <th>ID</th>
+      <th>shop_id</th>
+      <th>item_id</th>
+      <th>item_cnt_month</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0.0</td>
+      <td>5</td>
+      <td>5037</td>
+      <td>1.200000</td>
+    </tr>
+    <tr>
+      <td>1.0</td>
+      <td>5</td>
+      <td>5320</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <td>2.0</td>
+      <td>5</td>
+      <td>5233</td>
+      <td>1.336957</td>
+    </tr>
+    <tr>
+      <td>3.0</td>
+      <td>5</td>
+      <td>5232</td>
+      <td>0.960000</td>
+    </tr>
+    <tr>
+      <td>4.0</td>
+      <td>5</td>
+      <td>5268</td>
+      <td>0.000000</td>
+    </tr>
+  </tbody>
+</table>
+
+This is, of course, a simplified version in comparison with a real data science project. It is possible to have a lot
+more features in the data that can be used by the algorithm. 
 We could also try to use information outside the data set like how many state holidays the given month had or what 
 weather it was.
